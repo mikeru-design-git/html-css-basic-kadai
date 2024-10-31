@@ -1,0 +1,228 @@
+/* PC、スマホ共通スタイル */
+* {
+  box-sizing: border-box;
+}
+
+p {
+  font-size: 15px;
+}
+
+body {
+  font-family: "Source Sans Pro", "Hiragino Kaku Gothic ProN", Meiryo, Arial, sans-serif ;
+}
+
+/* bodyとheaderを整える */
+/* bodyを中央揃えにする */
+
+body {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+header {
+  /* 横一列に並べる */
+  /* コンテナにdisplay: flex;を指定 */
+  display: flex;
+  /* ロゴを左、ナビゲーションを右に寄せる */
+  /* space-between：一番左（logo）と一番右（nav）のアイテムを両端に配置し、残りのアイテムを均等な間隔で配置 */
+  justify-content: space-between;
+}
+
+/* ナビゲーション */
+
+#nav-pc {
+  font-size: 14px;
+}
+
+#nav-pc ul {
+  /* 左側の不要なスペースを削除 */
+  padding-left: 0; 
+   /* ナビゲーションリンクを横並びにするため コンテナに display: flex;　を使用 */
+   display: flex;
+}
+
+/* <li>要素のスタイルを除去 */
+#nav-pc li {
+  list-style: none;
+}
+
+
+/* ナビゲーションリンクの設定 */
+#nav-pc a {
+  /* 下線を非表示 */
+  text-decoration: none;
+  margin-left: 20px;
+  color: #0d0d0d;
+}
+
+
+#nav-pc a:hover {
+  text-decoration: underline;
+}
+
+
+/* メインビジュアルの装飾 */
+
+#main-visual {
+  /* 相対位置 */
+  position: relative;
+  height: 400px;
+}
+
+#main-message {
+  /* 親要素を基準にした絶対位置。左上にピッタリくっつける */
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #ffffff;
+  background-color: #2710d5;
+  /* 角丸にする：左上→右上→右下→左下 */
+  border-radius: 0 0 476px 0;
+  max-width: 620px;
+  height: 100%;
+  width: 100%;
+  z-index: 11;
+}
+
+#main-message > h1 {
+  font-size: 60px;
+  margin: 100px 0 0 50px;
+}
+
+#main-message > p {
+  font-size: 28px;
+  margin: 0 0 0 50px;
+}
+
+#main-visual > img {
+  max-width: 620px;
+  border-radius: 476px 0 0 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 10;
+} 
+
+
+/* 見出し */
+h2 {
+  margin-top: 40px;
+}
+
+/* 疑似要素  直後に画像を配置*/
+h2::after {
+  content: url(images/line.png);
+  margin-left: 10px;
+}
+
+h3 {
+  font-size: 26px;
+}
+
+/* セクション */
+#mission {
+  margin: 80px auto;
+}
+
+
+/* 子要素を横並びに */
+#mission-flex {
+  display: flex;
+}
+
+/* 幅（width）：50%を指定して、2つのdiv要素をちょうど半分に分ける */
+#mission-flex > div {
+  width: 50%;
+  /* 🟥flex-grow: 0.5;ではだめ？ */
+  margin: 20px;
+}
+
+/* 幅（width）：100%を指定して、親要素の幅いっぱいに広げる */
+#mission-photo {
+  width:   100%;
+}
+
+
+/* プロダクト */
+#product {
+  background-color: #fafafa;
+  margin: 80px 0 ;
+  padding: 10px 40 px 0px 40px;
+}
+
+
+#product .product-flex { 
+   margin-top: 40px;
+   display: flex;
+}
+
+/* 左のカラム */
+#product-left {
+  width: 50%;
+  margin-right: 20px;
+}
+
+/* 右のカラム */
+#product-right {
+  width: 50%;
+  margin-right: 20px;
+  margin-top: 80px;
+}
+
+/* 画像＋説明の枠 */
+/* 画像＋説明の枠（#product-left > div） */
+ /* 🟥　>div　で指定せずdivにidを設定してもよい？ */
+#product-left > div {
+  position: relative;
+  height: 480px;
+  margin-right: 20px;
+}
+
+#product-right > div {
+  position: relative;
+  height: 480px;
+  margin-right: 20px;
+}
+
+
+
+/* 画像は親のdiv要素からはみ出さないように幅を調整 */
+/* 幅(width)：100%を指定して、親要素の幅に合わせる */
+.product-photo {
+  width: 100%;
+}
+
+
+/* 画像とテキストを重ねるには、絶対位置（position:absolute）で指定する */
+.product-explain {
+  background: #ffffff;
+  position: absolute;
+  left: 0;
+  bottom: 50px;
+  margin: 0 40px;
+  padding: 20px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.05);
+}
+
+.product-explain > span {
+  color: #2710d5;
+  font-weight: bold;
+  font-size: 16px;
+  margin: 0;
+}
+
+.product-explain > h3 {
+  margin: 5px 0;
+}
+
+.product-explain > p {
+  font-size: 14px;
+  margin: 0;
+}
+
+/* marginにマイナスの値を指定すると、親要素の外にはみ出す（例：margin: 0 auto -42px auto;） */
+#product-more {
+  text-align: center;
+  position: relative;
+  bottom: -42px;
+}
